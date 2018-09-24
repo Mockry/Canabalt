@@ -4,6 +4,8 @@
 // Libraries
 #include <SFML/Graphics.hpp>
 
+//Project includes
+#include <AssetManager.h>
 
 
 int main()
@@ -14,12 +16,16 @@ int main()
 
 	// Render Window creation
 	sf::RenderWindow gameWindow;
-	gameWindow.create(sf::VideoMode::getDesktopMode(), "Whack A Critter",
+	gameWindow.create(sf::VideoMode::getDesktopMode(), "Canabalt",
 		sf::Style::Titlebar | sf::Style::Close);
 
 	// Timer functionality
 	sf::Clock gameClock;
 
+
+
+
+	AssetManager assets;
 	// end game setup
 	// --------------------------------------
 
