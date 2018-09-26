@@ -13,7 +13,7 @@ public:
 
 	void Update(sf::Time _frameTime);
 
-	void play();
+	void Play();
 	void Pause();
 	void Stop();
 
@@ -21,8 +21,8 @@ public:
 
 	void AddFrame(sf::Texture& _newFrame);
 	void SetSprite(sf:: Sprite& _sprite);
-	void setPlayBackSpeed(float _framesPerSecond);
-	void setLoop(bool _loop);
+	void SetPlayBackSpeed(float _framesPerSecond);
+	void SetLoop(bool _loop);
 
 
 
