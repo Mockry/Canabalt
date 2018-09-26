@@ -81,3 +81,19 @@ sf::SoundBuffer& AssetManager::GetSoundBuffer(std::string _fileName)
 		return soundBuffer;
 	}
 }
+
+sf::Font& AssetManager::GetFont(std::string _fileName)
+{
+	auto keyValuePair = s_instance->m_font.find(_fileName);
+
+	if (keyValuePair != s_instance->m_font.end())
+	{
+		return keyValuePair->second;
+	}
+	else
+	{
+		sf::Font& font = s_instance->m_font[_fileName];
+		font.loadFromFile(_fileName);
+		return font;
+	}
+}
