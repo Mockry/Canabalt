@@ -9,9 +9,9 @@ AssetManager* AssetManager::s_instance = nullptr;
 
 //Constructor
 AssetManager::AssetManager()
-	:m_textures		()
-	,m_soundBuffers ()
-	,m_font			()
+	:m_textures()
+	, m_soundBuffers()
+	, m_font()
 {
 	// Throw an error and stop execution (in debug mode) if a copy
 	// of this class has already been created
@@ -37,7 +37,7 @@ sf::Texture& AssetManager::GetTexture(std::string _fileName)
 
 	//Did we find the texture? (aka was it already loaded?)
 	//(iterator will be at the end if we did NOT find it)
-	if (keyValuePair != s_instance->end())
+	if (keyValuePair != s_instance->m_textures.end())
 	{
 		//Yes! we found it
 		return keyValuePair->second;
@@ -60,4 +60,24 @@ sf::Texture& AssetManager::GetTexture(std::string _fileName)
 		return texture;
 	}
 
+}
+
+
+
+sf::SoundBuffer& AssetManager::GetSoundBuffer(std::string _fileName)
+{
+	auto keyValuePair = s_instance->m_soundBuffers.find(_fileName);
+
+	if (keyValuePair != s_instance->m_soundBuffers.end())
+	{
+		//we did find it
+		return keyValuePair->second;
+	}
+	else
+	{
+		//we did not find it
+		sf::SoundBuffer& soundBuffer = s_instance->m_soundBuffers[_fileName];
+		soundBuffer.loadFromFile(_fileName);
+		return soundBuffer;
+	}
 }

@@ -3,9 +3,10 @@
 // --------------------------------------
 // Libraries
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 //Project includes
-#include <AssetManager.h>
+#include "AssetManager.h"
 
 
 int main()
@@ -23,9 +24,18 @@ int main()
 	sf::Clock gameClock;
 
 
-
-
+	
+	// Testing AssetManager
 	AssetManager assets;
+
+	
+	sf::Sprite testSprite;
+	testSprite.setTexture(AssetManager::GetTexture("graphics/playerJump.png"));
+
+	sf::Sound testSound;
+	testSound.setBuffer(AssetManager::GetSoundBuffer("audio/death.wav"));
+	testSound.play();
+
 	// end game setup
 	// --------------------------------------
 
@@ -68,8 +78,9 @@ int main()
 		// Clear the window to a single colour
 		gameWindow.clear();
 
+		
 		// Draw Everything
-
+		gameWindow.draw(testSprite);
 
 		// Display the window contents to the screen
 		gameWindow.display();
