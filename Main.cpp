@@ -93,7 +93,7 @@ int main()
 		sf::Time frameTime = gameClock.restart();
 
 		//update our animation
-		testAnimation.Update(frameTime);
+		testAnimationSystem.Update(frameTime);
 
 		// end update
 		// --------------------------------------
